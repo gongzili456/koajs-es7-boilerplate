@@ -1,0 +1,16 @@
+{
+  "name": "Jarvise API document",
+  "version": "0.0.1",
+  "description": "贾维斯管家API文档",
+  "title": "Jarvise API document",
+  "url" : "http://jvsvip.cn/api/v1",
+	"sampleUrl": "http://jvsvip.cn/api/v1",
+	"order": [
+	  "Error",
+	  "Define",
+	  "PostTitleAndError",
+	  "PostError",
+		"GetUser",
+		"PostUser"
+	]
+}

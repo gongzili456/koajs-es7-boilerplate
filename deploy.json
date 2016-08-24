@@ -1,0 +1,29 @@
+{
+	"apps": [
+		{
+			"name": "Jarvise-API",
+			"script": "index.js",
+			"env": {
+				"COMMON_VARIABLE": "true"
+			},
+			"env_production": {
+				"NODE_ENV": "production"
+			}
+		}
+	],
+	"deploy": {
+		"production": {
+			"user": "root",
+			"host": ["115.28.76.181"],
+			"ref": "origin/master",
+			"repo": "git@bitbucket.org:liuguili/jarvise-api.git",
+			"path": "/srv/jarvise/jarvise-api",
+			"post-deploy": "npm install && npm run doc && pm2 startOrRestart deploy.json --env production --node-args='--harmony' && pm2 save",
+			"pre-deploy-local": "echo 'Start deploy now.'",
+			"env"	: {
+				"NODE_ENV": "production",
+				"PORT": 8000
+			}
+		}
+	}
+}

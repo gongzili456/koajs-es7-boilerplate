@@ -1,0 +1,11 @@
+wechat:
+  appid:
+  appsecret:
+  token:
+  EncodingAESKey: 
+  redirect_domain: http://lo.topdmc.cn:8000
+  platform: mp
+
+db:
+  uri:
+  options:

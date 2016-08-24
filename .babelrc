@@ -1,0 +1,4 @@
+{
+  "presets": ["node6"],
+  "plugins": ["syntax-async-functions", "transform-regenerator", "add-module-exports", "transform-runtime"]
+}
