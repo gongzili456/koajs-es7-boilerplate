@@ -1,10 +1,8 @@
-import Debug from 'debug'
 import jwt from 'jsonwebtoken'
 import fs from 'fs'
 import path from 'path'
 
 const cert = fs.readFileSync(path.join(__dirname, '../../cert/private'))
-const debug = new Debug('app:controllers:signin:')
 
 /**
 * @api {get} /signin 登录
@@ -20,15 +18,16 @@ const debug = new Debug('app:controllers:signin:')
 *   data: 'xxxxxxxxxxxx'
 * }
 */
-export default function* () {
-	debug('userinfo: ', this._wechat_userinfo)
+export default async function(ctx) {
+  const token = jwt.sign({
+    name: 'Tom',
+    age: 33,
+  }, cert, {
+    algorithm: 'RS256',
+    expiresIn: '7d',
+  })
 
-	const token = jwt.sign(this._wechat_userinfo, cert, {
-		algorithm: 'RS256',
-		expiresIn: '7d',
-	})
-
-	this.body = {
-		data: token,
-	}
+  ctx.body = {
+    data: `Authorization: Bearer ${token}`,
+  }
 }
