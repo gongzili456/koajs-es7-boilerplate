@@ -9,3 +9,7 @@ wechat:
 db:
   uri:
   options:
+
+jsonwebtoken:
+  algorithm: RS256
+  expiresIn: 7d

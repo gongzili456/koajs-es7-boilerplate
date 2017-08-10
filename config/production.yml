@@ -2,10 +2,14 @@ wechat:
   appid:
   appsecret:
   token:
-  EncodingAESKey: 
+  EncodingAESKey:
   redirect_domain: http://lo.topdmc.cn:8000
   platform: mp
 
 db:
   uri:
   options:
+
+jsonwebtoken:
+  algorithm: RS256
+  expiresIn: 7d

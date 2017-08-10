@@ -17,7 +17,8 @@ export default function() {
     prefix: '/api/v1',
   })
 
-  router.get('/sign', CONTROLLERS.sign)
+  router.get('/sign', CONTROLLERS.sign.jsonwebtoken)
+  router.get('/sign/wechat', CONTROLLERS.sign.wechatSign)
 
   router.get('/users', authentication, CONTROLLERS.users.list)
   router.post('/users', authentication, convert(validator.validate({

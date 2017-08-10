@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken'
+import config from 'config'
 import fs from 'fs'
 import path from 'path'
 
@@ -18,16 +19,21 @@ const cert = fs.readFileSync(path.join(__dirname, '../../cert/private'))
 *   data: 'xxxxxxxxxxxx'
 * }
 */
-export default async function(ctx) {
-  const token = jwt.sign({
-    name: 'Tom',
-    age: 33,
-  }, cert, {
-    algorithm: 'RS256',
-    expiresIn: '7d',
-  })
-
+export async function wechatSign(ctx) {
+  const token = jwt.sign({}, cert, config.jsonwebtoken)
   ctx.body = {
+    message: 'success',
+    data: `Authorization: Bearer ${token}`,
+  }
+}
+
+/**
+* Simple json web token
+*/
+export async function jsonwebtoken(ctx) {
+  const token = jwt.sign({}, cert, config.jsonwebtoken)
+  ctx.body = {
+    message: 'success',
     data: `Authorization: Bearer ${token}`,
   }
 }
