@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run doc",
     "doc": "./node_modules/.bin/apidoc -i ./app/controllers -o ./docs -t ./template",
     "lint": "./node_modules/.bin/eslint ./app/** index.js",
     "predev": "npm run lint",
@@ -32,6 +31,7 @@
     "lodash": "^4.13.1",
     "require-dir": "^0.3.0",
     "sequelize": "^3.23.4",
+    "socket.io": "1.7.x",
     "wechat-access-token": "^1.0.2",
     "wechat-api": "^1.28.0",
     "wechat-pay": "^0.2.3",
